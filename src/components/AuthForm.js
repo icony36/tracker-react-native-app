@@ -43,7 +43,6 @@ const AuthForm = ({
           autoCapitalize="none"
           autoCorrect={false}
           secureTextEntry
-          keyboardType="visible-password"
           autoCompleteType="off"
           textContentType="none"
         />

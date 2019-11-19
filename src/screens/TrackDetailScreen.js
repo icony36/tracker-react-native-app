@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { StyleSheet, SafeAreaView, StatusBar, ScrollView } from "react-native";
-import { Text } from "react-native-elements";
+import { Text, Button } from "react-native-elements";
 import Spacer from "../components/Spacer";
 import { Context as TrackContext } from "../context/TrackContext";
 import MapView, { Polyline } from "react-native-maps";
@@ -36,6 +36,13 @@ const TrackDetailScreen = ({ navigation }) => {
               strokeColor="blue"
             />
           </MapView>
+          <Spacer>
+            <Button
+              title="Delete Track"
+              buttonStyle={styles.delBtn}
+              onPress={() => {}}
+            />
+          </Spacer>
         </ScrollView>
       </SafeAreaView>
     </>
@@ -48,6 +55,9 @@ const styles = StyleSheet.create({
   },
   map: {
     height: 300
+  },
+  delBtn: {
+    backgroundColor: "red"
   }
 });
 
