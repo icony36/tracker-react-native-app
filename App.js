@@ -5,6 +5,7 @@ import SignupScreen from "./src/screens/SignupScreen";
 import TrackListScreen from "./src/screens/TrackListScreen";
 import TrackCreateScreen from "./src/screens/TrackCreateScreen";
 import TrackDetailScreen from "./src/screens/TrackDetailScreen";
+import TrackEditScreen from "./src/screens/TrackEditScreen";
 import ResolveAuthScreen from "./src/screens/ResolveAuthScreen";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
@@ -35,7 +36,8 @@ const switchNavigator = createSwitchNavigator(
         trackListFlow: {
           screen: createStackNavigator({
             TrackList: TrackListScreen,
-            TrackDetail: TrackDetailScreen
+            TrackDetail: TrackDetailScreen,
+            TrackEdit: TrackEditScreen
           }),
           navigationOptions: () => ({
             tabBarIcon: ({ tintColor }) => (

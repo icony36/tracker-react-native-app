@@ -23,8 +23,12 @@ const deleteTrack = dispatch => async _id => {
   await trackerApi.delete("/tracks", { data: { _id } });
 };
 
+const editTrack = dispatch => async (_id, name) => {
+  await trackerApi.put("/tracks", { _id, name });
+};
+
 export const { Provider, Context } = createDataContext(
   trackReducer,
-  { fetchTracks, createTrack, deleteTrack },
+  { fetchTracks, createTrack, deleteTrack, editTrack },
   []
 );

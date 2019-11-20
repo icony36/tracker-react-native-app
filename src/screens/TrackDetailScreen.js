@@ -16,39 +16,42 @@ const TrackDetailScreen = ({ navigation }) => {
   const [destroyTrack] = useDestoryTrack();
 
   return (
-    <>
-      <SafeAreaView style={{ flex: 1 }}>
-        <StatusBar barStyle="dark-content" />
-        <ScrollView>
-          <Spacer>
-            <Text h3 style={styles.title}>
-              {track.name}
-            </Text>
-          </Spacer>
-          <MapView
-            initialRegion={{
-              longitudeDelta: 0.01,
-              latitudeDelta: 0.01,
-              ...initialCoords
-            }}
-            style={styles.map}
-          >
-            <Polyline
-              coordinates={track.locations.map(loc => loc.coords)}
-              strokeWidth={4}
-              strokeColor="blue"
-            />
-          </MapView>
-          <Spacer>
-            <Button
-              title="Delete Track"
-              buttonStyle={styles.delBtn}
-              onPress={() => destroyTrack(_id)}
-            />
-          </Spacer>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar barStyle="dark-content" />
+      <ScrollView>
+        <Spacer>
+          <Text h3 style={styles.title}>
+            {track.name}
+          </Text>
+        </Spacer>
+        <MapView
+          initialRegion={{
+            longitudeDelta: 0.01,
+            latitudeDelta: 0.01,
+            ...initialCoords
+          }}
+          style={styles.map}
+        >
+          <Polyline
+            coordinates={track.locations.map(loc => loc.coords)}
+            strokeWidth={4}
+            strokeColor="blue"
+          />
+        </MapView>
+        <Spacer>
+          <Button
+            title="Edit Track"
+            onPress={() => navigation.navigate("TrackEdit", { track })}
+          />
+
+          <Button
+            title="Delete Track"
+            buttonStyle={styles.delBtn}
+            onPress={() => destroyTrack(_id)}
+          />
+        </Spacer>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -60,7 +63,8 @@ const styles = StyleSheet.create({
     height: 300
   },
   delBtn: {
-    backgroundColor: "red"
+    backgroundColor: "red",
+    marginTop: 16
   }
 });
 
