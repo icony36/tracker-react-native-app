@@ -4,13 +4,13 @@ import { NavigationEvents } from "react-navigation";
 import { Context as AuthContext } from "../context/AuthContext";
 import AuthForm from "../components/AuthForm";
 import NavLink from "../components/NavLink";
-import KeyboardView from "../components/KeyboardView";
+import KeyboardViewContainer from "../components/KeyboardViewContainer";
 
 const SigninScreen = () => {
   const { state, signin, clearErrMsg } = useContext(AuthContext);
 
   return (
-    <KeyboardView>
+    <KeyboardViewContainer>
       <View style={styles.container}>
         <AuthForm
           headerText="Sign In for Tracker"
@@ -24,7 +24,7 @@ const SigninScreen = () => {
           text="Don't have an account? Sign up instead!"
         />
       </View>
-    </KeyboardView>
+    </KeyboardViewContainer>
   );
 };
 

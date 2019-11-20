@@ -8,7 +8,7 @@ import TrackForm from "../components/TrackForm";
 import Spacer from "../components/Spacer";
 import { Context as LocationContext } from "../context/LocationContext";
 import useLocation from "../hooks/useLocation";
-import KeyboardView from "../components/KeyboardView";
+import KeyboardViewContainer from "../components/KeyboardViewContainer";
 
 const TrackCreateScreen = ({ isFocused }) => {
   const {
@@ -26,7 +26,7 @@ const TrackCreateScreen = ({ isFocused }) => {
   const [err] = useLocation(isFocused || recording, callback);
 
   return (
-    <KeyboardView>
+    <KeyboardViewContainer>
       <>
         <Spacer>
           <Text h3 style={styles.title}>
@@ -37,7 +37,7 @@ const TrackCreateScreen = ({ isFocused }) => {
         {err ? <Text>Please enable location services</Text> : null}
         <TrackForm />
       </>
-    </KeyboardView>
+    </KeyboardViewContainer>
   );
 };
 

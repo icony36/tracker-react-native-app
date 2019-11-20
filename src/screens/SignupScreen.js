@@ -3,13 +3,13 @@ import { View, StyleSheet } from "react-native";
 import { Context as AuthContext } from "../context/AuthContext";
 import AuthForm from "../components/AuthForm";
 import NavLink from "../components/NavLink";
-import KeyboardView from "../components/KeyboardView";
+import KeyboardViewContainer from "../components/KeyboardViewContainer";
 
 const SignupScreen = () => {
   const { state, signup, clearErrMsg } = useContext(AuthContext);
 
   return (
-    <KeyboardView>
+    <KeyboardViewContainer>
       <View style={styles.container}>
         <AuthForm
           headerText="Sign Up for Tracker"
@@ -23,7 +23,7 @@ const SignupScreen = () => {
           text="Already have an account? Sign in instead!"
         />
       </View>
-    </KeyboardView>
+    </KeyboardViewContainer>
   );
 };
 
