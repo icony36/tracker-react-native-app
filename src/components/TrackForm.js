@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { StyleSheet } from "react-native";
-import { Input, Button } from "react-native-elements";
+import { Input, Button, Text } from "react-native-elements";
 import Spacer from "../components/Spacer";
 import { Context as LocationContext } from "../context/LocationContext";
 import useSaveTrack from "../hooks/useSaveTrack";
@@ -13,7 +13,7 @@ const TrackForm = () => {
     changeName
   } = useContext(LocationContext);
 
-  const [saveTrack] = useSaveTrack();
+  const [saveTrack, err] = useSaveTrack();
 
   return (
     <>
@@ -21,8 +21,13 @@ const TrackForm = () => {
         <Input
           value={name}
           onChangeText={changeName}
-          placeholder="Enter track name"
+          placeholder="Enter track name (required)"
         />
+        {err ? (
+          <Text h5 style={styles.err}>
+            {err}
+          </Text>
+        ) : null}
       </Spacer>
       <Spacer>
         {recording ? (
@@ -53,6 +58,10 @@ const styles = StyleSheet.create({
   },
   saveBtn: {
     backgroundColor: "green",
+    marginTop: 16
+  },
+  err: {
+    color: "red",
     marginTop: 16
   }
 });

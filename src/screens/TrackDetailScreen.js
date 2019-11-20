@@ -4,7 +4,7 @@ import { Text, Button } from "react-native-elements";
 import Spacer from "../components/Spacer";
 import { Context as TrackContext } from "../context/TrackContext";
 import MapView, { Polyline } from "react-native-maps";
-import useDeleteTrack from "../hooks/useDeleteTrack";
+import useDestoryTrack from "../hooks/useDestroyTrack";
 
 const TrackDetailScreen = ({ navigation }) => {
   const _id = navigation.getParam("_id");
@@ -13,7 +13,7 @@ const TrackDetailScreen = ({ navigation }) => {
   const track = state.find(el => el._id === _id);
   const initialCoords = track.locations[0].coords;
 
-  const [destroyTrack] = useDeleteTrack();
+  const [destroyTrack] = useDestoryTrack();
 
   return (
     <>
